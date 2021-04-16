@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Social proof section</title>
+
+    <style>
+      /*Resetting Default CSS,Custom Properties*/
+
+      @import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap");
+
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        font-size: 15px;
+        font-family: "Spartan", sans-serif;
+        --Very-Dark-Magenta: hsl(300, 43%, 22%);
+        --Soft-Pink: hsl(333, 80%, 67%);
+        --Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+        --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+        --White: hsl(0, 0%, 100%);
+      }
+
+      p,
+      span,
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+
+      /*Typography*/
+
+      html {
+        background: var(--White);
+      }
+
+      .heading-content > h1,
+      .rating > p {
+        color: var(--Very-Dark-Magenta);
+        font-weight: 700;
+      }
+
+      .heading-content > h1 {
+        font-size: 3rem;
+        letter-spacing: -2px;
+      }
+
+      .heading-content > p {
+        color: var(--Dark-Grayish-Magenta);
+        font-size: 1.3rem;
+        font-weight: 500;
+        letter-spacing: -1px;
+        line-height: 1.7em;
+        word-spacing: 1px;
+        text-align: center;
+      }
+
+      .rating {
+        background: var(--Light-Grayish-Magenta);
+      }
+
+      .rating > p {
+        font-size: 1.2rem;
+      }
+
+      .name,
+      .review {
+        color: var(--Light-Grayish-Magenta);
+      }
+
+      .review-card {
+        background: var(--Very-Dark-Magenta);
+      }
+      .name {
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .review {
+        font-weight: 400;
+        font-size: 1.125rem;
+        line-height: 1.7em;
+      }
+
+      .buyer {
+        color: var(--Soft-Pink);
+        font-size: 1.2rem;
+      }
+
+      .attribution {
+		position:absolute;
+		bottom:0;
+		left:50%;
+		transform:translate(-50%, -50%);
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution > a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      /*Alignment for mobile first approach*/
+
+      .profile,
+      .buyer,
+      .name {
+        position: relative;
+      }
+
+      .section {
+        max-width: 66.667em;
+      }
+
+      .heading,
+      .ratings,
+      .rating,
+      .reviews {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .reviews,
+      .section {
+        padding: 0 0.5em;
+      }
+
+      .heading-content > h1 {
+        text-align: center;
+        margin: 2em 0em 1em 0em;
+      }
+
+      .heading-content > .p {
+        text-align: center;
+        margin: 1.5em 0;
+      }
+
+      .rating {
+        border-radius: 12px;
+        margin-top: 1.5em;
+        text-align: center;
+        padding: 1em 3em;
+      }
+
+      .rating > p {
+        margin: 0.5em;
+      }
+
+      .stars {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .stars img {
+        margin: 0.5em;
+        width: 1.2em;
+        height: 1.2em;
+      }
+
+      .reviews {
+        margin: 3em 0;
+      }
+
+      .review-card {
+        border-radius: 12px;
+        margin-top: 2em;
+      }
+
+      .profile {
+        top: 40px;
+        left: 30px;
+        margin: 1em;
+        border-radius: 50%;
+        width: 4em;
+        height: 4em;
+      }
+
+      .name {
+        top: -10px;
+        left: 30px;
+      }
+
+      .buyer {
+        top: -5px;
+        left: 120px;
+      }
+
+      .review {
+        margin: 2.5em;
+      }
+
+      /*Media Queries*/
+
+      @media screen and (max-width: 375px) {
+        html {
+          background: url("images/bg-pattern-top-mobile.svg") no-repeat top left,
+            url("images/bg-pattern-bottom-mobile.svg") no-repeat bottom right;
+        }
+      }
+
+      @media screen and (min-width: 375px) {
+        html {
+          background: url("images/bg-pattern-top-desktop.svg") no-repeat top
+              left,
+            url("images/bg-pattern-bottom-desktop.svg") no-repeat bottom right;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .ratings {
+          flex-direction: row;
+        }
+
+        .rating {
+          padding: 1em;
+        }
+
+        .rating + .rating {
+          margin-left: 1em;
+        }
+      }
+
+      @media screen and (min-width: 1000px) {
+        .section {
+          margin: 0 auto;
+        }
+
+        .ratings div:nth-of-type(2) {
+          margin: 1.5em 0 0 2em;
+        }
+
+        .ratings div:nth-of-type(3) {
+          margin: 1.5em 0 0 4em;
+        }
+
+        .heading,
+        .reviews {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .heading {
+          margin-top: 3em;
+        }
+
+        .heading-content {
+          width: 50%;
+          padding: 3em 5em 3em 0;
+        }
+
+        .heading-content > h1 {
+          text-align: left;
+          margin: 0;
+        }
+
+        .heading-content > p {
+          margin-top: 0.5em;
+          font-size: 1rem;
+          text-align: left;
+        }
+
+        .ratings {
+          width: 50%;
+          flex-direction: column;
+          padding: 3em 0 3em 3em;
+        }
+
+        .rating {
+          flex-direction: row;
+          width: 25em;
+          margin: 0;
+          padding: 1.5em 1em;
+        }
+
+        .rating > p {
+          font-size: 1rem;
+          margin: 0 0 0 1em;
+        }
+
+        .stars {
+          margin: 0 0 0 1em;
+        }
+
+        .stars img {
+          margin: 0em;
+          width: 0.85em;
+          height: 0.85em;
+        }
+
+        .reviews {
+          padding: 0;
+          margin: 1em 0;
+        }
+
+        .review {
+          margin: 0em;
+          font-size: 0.85rem;
+          line-height: 1.5em;
+          text-align: left;
+        }
+
+        .review-card {
+          width: 20.5em;
+          height: 16em;
+          padding: 2em 1.5em;
+        }
+
+        .review-card:nth-of-type(2) {
+          margin-top: 3em;
+        }
+
+        .review-card:nth-of-type(3) {
+          margin-top: 4em;
+        }
+
+        .profile {
+          margin: 0.5em;
+          width: 3em;
+          height: 3em;
+          top: 10px;
+          left: -5px;
+        }
+
+        .name,
+        .buyer {
+          font-size: 0.9rem;
+        }
+
+        .name {
+          top: -25px;
+          left: -5px;
+        }
+
+        .buyer {
+          top: -25px;
+          left: 57px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section">
+      <div class="heading">
+        <div class="heading-content">
+          <h1>10,000+ of our users love our products.</h1>
+          <p>
+            We only provide great products combined with excellent customer
+            service. See what our satisfied customers are saying about our
+            services.
+          </p>
+        </div>
+        <div class="ratings">
+          <div class="rating">
+            <span class="stars">
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+            </span>
+            <p>Rated 5 Stars in Reviews</p>
+          </div>
+          <div class="rating">
+            <span class="stars">
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+            </span>
+            <p>Rated 5 Stars in Report Guru</p>
+          </div>
+          <div class="rating">
+            <span class="stars">
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+              <img src="images/icon-star.svg" alt="star rating" />
+            </span>
+            <p>Rated 5 Stars in BestTech</p>
+          </div>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="review-card">
+          <img
+            src="images/image-colton.jpg"
+            alt="colton smith"
+            class="profile"
+          />
+          <span class="name">Colton Smith </span><br />
+          <span class="buyer">Verified Buyer</span>
+          <p class="review">
+            "We needed the same printed design as the one we had ordered a week
+            prior. Not only did they find the original order, but we also
+            received it in time. Excellent!"
+          </p>
+        </div>
+        <div class="review-card">
+          <img
+            src="images/image-irene.jpg"
+            alt="irene roberts"
+            class="profile"
+          />
+          <span class="name">Irene Roberts </span><br />
+          <span class="buyer">Verified Buyer</span>
+          <p class="review">
+            "Customer service is always excellent and very quick turn around.
+            Completely delighted with the simplicity of the purchase and the
+            speed of delivery."
+          </p>
+        </div>
+        <div class="review-card">
+          <img src="images/image-anne.jpg" alt="anne wallace" class="profile" />
+          <span class="name">Anne Wallace </span><br />
+          <span class="buyer">Verified Buyer</span>
+          <p class="review">
+            "Put an order with this company and can only praise them for the
+            very high standard. Will definitely use them again and recommend
+            them to everyone!"
+          </p>
+        </div>
+      </div>
+
+    </section>
+	      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://codepen.io/Mr-RO13OT/">Mr.Robot</a>.
+      </div>
+  </body>
+</html>
