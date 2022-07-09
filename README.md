@@ -27,8 +27,8 @@ Created my second newbie project on frontend mentor to improve my html+css skill
 
 ### Links
 
-- GITHUB REPO: [https://github.com/MrRo-bot/FEM2]
-- Solution URL: [https://codepen.io/Mr-RO13OT/pen/VwPdGZx]
+- GITHUB REPO: [https://github.com/MrRo-bot/social-proof-section]
+- Solution URL: [https://codepen.io/Mr-RO13OT/full/VwPdGZx]
 
 ## My process
 
